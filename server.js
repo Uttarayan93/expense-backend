@@ -19,6 +19,11 @@ mongoose
 const expenseRoutes = require("./routes/expenseRoutes");
 app.use("/api/expenses", expenseRoutes);
 
+// ✅ Health check route
+app.get("/api/health", (req, res) => {
+  res.send("OK");
+});
+
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
